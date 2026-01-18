@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     DEBUG: bool = True
 
     # Database settings
-    DATABASE_URL: str = "postgresql://localhost/conversa"
+    DATABASE_URL: str = "postgresql+psycopg://postgres:postgres@localhost:5432/conversa"
 
     # API settings
     API_V1_PREFIX: str = "/api/v1"

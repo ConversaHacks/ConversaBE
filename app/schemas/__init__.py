@@ -3,7 +3,9 @@ from .person import (
     PersonCreate,
     PersonUpdate,
     PersonResponse,
-    PersonListResponse
+    PersonListResponse,
+    FaceMatchRequest,
+    FaceMatchResponse
 )
 from .conversation import (
     ActionItemBase,
@@ -23,6 +25,8 @@ __all__ = [
     "PersonUpdate",
     "PersonResponse",
     "PersonListResponse",
+    "FaceMatchRequest",
+    "FaceMatchResponse",
     "ActionItemBase",
     "ActionItemCreate",
     "ActionItemUpdate",

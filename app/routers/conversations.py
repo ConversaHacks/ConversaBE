@@ -28,7 +28,8 @@ def get_conversations(
     if person_id:
         query = query.filter(Conversation.person_id == person_id)
 
-    conversations = query.offset(skip).limit(limit).all()
+    # Order by created_at descending (newest first)
+    conversations = query.order_by(Conversation.created_at.desc()).offset(skip).limit(limit).all()
 
     # Transform to list response with action item count
     result = []

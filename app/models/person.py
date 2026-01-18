@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, DateTime, ARRAY, Text
+from sqlalchemy import Column, String, Integer, DateTime, ARRAY, Text, LargeBinary
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 import uuid
@@ -18,6 +18,11 @@ class Person(Base):
     open_follow_ups = Column(ARRAY(String), default=list)
     last_met = Column(String, nullable=True)
     met_count = Column(Integer, default=0)
+
+    # Face recognition fields
+    face_embedding = Column(ARRAY(Text), nullable=True)  # Store as array of float strings
+    face_thumbnail = Column(LargeBinary, nullable=True)  # Small JPEG image
+    physical_description = Column(Text, nullable=True)  # AI-generated description
 
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now(), server_default=func.now())
